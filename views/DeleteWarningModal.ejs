@@ -1,0 +1,17 @@
+<div class="DeleteWarningModal" id="DeleteWarningModal">
+    <div class="ModalFirstRow">
+        <div class="modalHeading">
+            <span>Delete Employee</span>
+        </div>
+        <div class="CloseCrossButn" onclick='CloseDeleteWarningModal()'>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+    <div class="WarningContent">
+        <span>Are you sure you want to delete this employee?</span>
+    </div>
+    <div class="ModalButtons">
+        <button id="CancelModal" onclick="CloseDeleteWarningModal()">Cancel</button>
+        <button id="DeleteModal" onclick="successDeleteModal()">Delete</button>
+    </div>
+</div>

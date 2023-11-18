@@ -1,0 +1,140 @@
+<div class="EditEmployeeForm" id="EditEmployeeForm">
+    <div class="col-lg-6 pb-4 form-part innerDivEditEmployeeForm">
+        <div class="left-section col-12 p-4">
+            <div class="leftSectionTitle">
+                <div class="title"><span><label for="title" class="heading">Edit Employee</label></span></div>
+                <div class="closeButton" onclick='CloseEditEmployee()'>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+
+
+            <form  enctype="multipart/form-data">
+            <div class="ProfilePhotoSection">
+            <div id="editEmployeeProfilePic" class="EditEmployeeDpPIcture my-4">
+                <span>
+                    <input type="file" name="image" accept="image/*" id="editImageInput" ></span>
+                <img id="editedEmployeeProfilePic" for="editImageInput">
+            </div>
+            <div class="DpChangeBTN">
+                <span id="DpChangeBTN"><label for="editImageInput">Change</label></span>
+            </div>
+        </div>
+    </form>
+
+
+            <form id="AddEmployeeform">
+                <div class="row py-2 l-first-row">
+                    <div class="col-md-3">
+                        <label for="disabledSelect" class="form-label heading">Salutation</label>
+                        <select id="editSalutation" class="form-select p-input" required>
+                            <option>select</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="disabledTextInput" class="form-label heading">First Name</label>
+                        <input type="text" id="editFirstName" class="form-control p-input" placeholder="john"
+                            required>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="disabledTextInput" class="form-label heading">Last Name</label>
+                        <input type="text" id="editLastName" class="form-control p-input" placeholder="doe"
+                            required>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label heading">Email
+                            address</label>
+                        <input type="email" class="form-control p-input" id="editEmail"
+                            placeholder="mail@simmmple.com" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label heading">Mobile
+                            Number</label>
+                        <input type="text" class="form-control p-input" id="editPhone"
+                            placeholder="enter mobile number" required>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label heading">Date of
+                            Birth</label>
+                        <input type="date" class="form-control p-input" id="Editdob"
+                            placeholder="select date of birth" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label heading">Gender</label>
+                        <div class="gender-radio">
+                            <input class="form-check-input" type="radio" name="editGender" id="editMale"
+                                value="Male">
+                            <span> <label class="form-check-label" for="inlineRadio1">Male</label></span>
+                            <input class="form-check-input" type="radio" name="editGender" id="editFemale"
+                                value="Female">
+                            <span> <label class="form-check-label" for="inlineRadio1">Female</label></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-12">
+                        <label for="exampleFormControlInput1" class="form-label heading">Qualifications</label>
+                        <input type="text" id="editQualifications" class="form-control p-input"
+                            placeholder="enter qualifications" required>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-12">
+                        <label for="exampleFormControlInput1" class="form-label heading">Address</label>
+                        <input type="text" id="editAddress" class="form-control p-input" placeholder="enter address"
+                            required>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-sm-6 op-select">
+                        <label for="disabledSelect" class="form-label heading">Country</label>
+                        <select id="editCountry" class="form-select p-input" required>
+                            <option>select country</option>
+                            <option value="USA">USA</option>
+                            <option value="India">India</option>
+                            <option value="UK">UK</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="disabledSelect" class="form-label heading">State</label>
+                        <select id="editState" class="form-select p-input" required>
+                            <option>select state</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Karnataka">Karnataka</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row py-2 mb-3">
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label heading">City</label>
+                        <input type="text" id="editCity" class="form-control p-input" placeholder="enter city"
+                            required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="exampleFormControlInput1" class="form-label heading">Pin/Zip</label>
+                        <input type="text" id="editPin" class="form-control p-input" placeholder="enter zip/pin"
+                            required>
+                    </div>
+                </div>
+
+            </form>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer p-2">
+                        <button type="button" class="btn btn-light py-4"
+                            onclick="CloseEditEmployee()"><span>Cancel</span></button>
+                        <button type="submit " class="btn filled py-4" id="SaveEditEmployee">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

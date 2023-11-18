@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head');%>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="MainPage">
+            <!-- SideBar Section -->
+          <%-include('SideBar');%>
+            <!-- End---- SideBar Section -->
+            <!-- Main Section -->
+            <div class="MainSection">
+                <%-include('SectionHeadingViewEmployee');%>
+                <%-include('viewEmployeeProfile');%>
+
+             
+        <%-include('copyrightFooter');%>
+            </div>
+
+        </div>
+        <!--End ---- Main Section -->
+    </div>
+    </div>
+
+
+
+
+
+<%-include('DeleteWarningModal');%>
+<%-include('successDeleteModal');%>
+
+<div id="overLay"></div>
+
+<%-include('employyeeEdittedModal');%>
+
+    <!-- Edit-Employee---section -->
+    <%-include('editFormViewEmployee');%>
+
+    <!--end--Edit-Employee---section -->
+
+
+
+
+    <script src="/public/asset/script.js"></script>
+    <script src="/public/asset/viewEmployee.js"></script>
+</body>
+
+</html>

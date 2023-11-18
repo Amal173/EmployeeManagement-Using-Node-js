@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/asset/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/public/images/images.png">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="backgroundImage">
+            <img src="/public/images/retrosupply-jLwVAUtLOAQ-unsplash.jpg" alt="">
+        </div>
+        <div class="login-actions">
+            <div class="login-header">
+                <h1>login here</h1>
+                <h5>Welcome to Employee management system</h5>
+            </div>
+
+            <form action="/register/loginUser " id="login-form" method="POST">
+
+                <div class="input-row">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="name" placeholder="Enter your email">
+                </div>
+
+
+                <div class="input-row">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <div class="row">
+                    <div class="check">
+                        <input type="checkbox" name="rem">
+                        <label for="rem">Remember me</label>
+                    </div>
+
+                    <a href="/forgotPassword" class="forgo">Forgot Password</a>
+                </div>
+
+                <button  type="submit" class="login" id="login">Log in</button>
+            </form>
+
+            <p class="sign-up-prompt">Don't have an Account? <a href="/signup" class="sign-up">Sign Up Here</a></p>
+
+        </div>
+       
+    </div>
+</body>
+
+</html>

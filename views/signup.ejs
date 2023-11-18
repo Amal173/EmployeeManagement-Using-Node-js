@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/asset/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>signup page</title>
+    <link rel="icon" type="image/x-icon" href="/public/images/images.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="backgroundImage">
+            <img src="/public/images/lum3n--RBuQ2PK_L8-unsplash.jpg" alt="">
+        </div>
+        <div class="signup-actions">
+            <div class="login-header">
+                <h1>signup here</h1>
+                <h5>Welcome to Employee management system</h5>
+            </div>
+
+            <form action="/register" id="sign-up-form" method="post">
+
+                <div class="input-row">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="Enter your email">
+                </div>
+
+
+                <div class="input-row">
+                    <label for="password">Password</label>
+                    <input type="password" name="password">
+                </div>
+
+                <div class="row">
+                    <div class="check">
+                        <input type="checkbox" name="rem">
+                        <label for="rem">Remember me</label>
+                    </div>
+
+                    <a href="#" class="forgo">Forgot Password</a>
+                </div>
+
+                <button type="submit" class="Signup" id="Signup">Signup</button>
+            </form>
+
+            <p class="sign-up-prompt">Already have an Account? <a href="/" class="sign-up">login Here</a></p>
+
+        </div>
+       
+    </div>
+</body>
+
+</html>

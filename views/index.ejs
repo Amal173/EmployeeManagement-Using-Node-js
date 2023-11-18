@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head');%>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="MainPage">
+            <!-- SideBar Section -->
+
+            <%- include('SideBar');%>
+
+
+
+                <!-- End---- SideBar Section -->
+                <!-- Main Section -->
+                <div class="MainSection">
+                    <%-include('SectionHeadingMain');%>
+                        <%-include('tableData');%>
+
+                            <!-- pagination -->
+                            <%-include('pagination');%>
+                                <!-- end ---pagination -->
+
+
+                                <!-- copyright footer -->
+                                <%-include('copyrightFooter');%>
+
+                </div>
+
+                <!-- End --- Main Section -->
+
+        </div>
+    </div>
+
+
+    <!-- left---section -->
+
+    <!-- Add Employee Form -->
+    <%- include('addEmployee'); %>
+
+        <!-- End ----Add Employee Form -->
+
+        <!--end----- left---section -->
+
+
+        <!-- Edit-Employee---section -->
+        <%- include('EditEmployeeForm'); %>
+            <!--end--Edit-Employee---section -->
+
+            <div id="overLay"></div>
+
+            <%-include('DeleteWarningModal');%>
+                <%-include('successDeleteModal');%>
+                    <%-include('employyeeCreatedTrue');%>
+                        <%-include('employyeeEdittedModal');%>
+
+                            <script src="/public/asset/script.js"></script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+        #otpInput {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #verifyButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>OTP Verification</h2>
+    <p>Enter the OTP sent to your mail:</p>
+    
+<form action="/register/varifyUserEmail" method="post">
+    <input type="text" name="otpInput" id="otpInput" placeholder="Enter OTP" maxlength="6">
+    <br><br>
+    <button  type="submit" name="otpInput" id="verifyButton">Verify OTP</button>
+</form>
+    <!-- <script>
+        function verifyOTP() {
+            var enteredOTP = document.getElementById("otpInput").value;
+
+            // In a real-world scenario, you would send the enteredOTP to the server for verification.
+            // The server would generate the OTP and compare it with the enteredOTP.
+
+            // For the sake of this example, let's assume the correct OTP is "123456".
+            var correctOTP = "123456";
+
+            if (enteredOTP === correctOTP) {
+                alert("OTP verification successful!");
+                // You can redirect the user to another page or perform further actions here.
+            } else {
+                alert("Incorrect OTP. Please try again.");
+            }
+        }
+    </script> -->
+</body>
+</html>

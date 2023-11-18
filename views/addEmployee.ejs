@@ -1,0 +1,187 @@
+<!-- Add Employee Form -->
+<div class="AddEmployeeForm" id="AddEmployeeForm">
+    <div class="col-lg-6 pb-4 form-part innerDivAddEmployeeForm">
+        <div class="left-section col-12 p-4">
+            <div class="leftSectionTitle">
+                <div class="title"><span><label for="title" class="heading pb-3">Add Employee</label></span></div>
+                <div class="closeButton" onclick='CloseAddEmployee()'>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+
+            <div class="card upload-section text-center py-4 mb-3" id="upload-section">
+               <form id="imgupload" enctype="multipart/form-data">
+                <div class="imgSection" id="imgSection"><i class="fa-solid fa-upload"></i>
+                    <span><label class="text">Upload Image</label>
+                        <input type="file" name="image" accept="image/*" id="uploadImageInput"></span>
+
+                    <span><label class="text-file-type">PNG, JPG files are allowed</label></span>
+                    <span id="uploadingWarning">* please select a file</span>
+                </div>
+               </form>
+                <img id="image" for="uploadImageInput">
+                <div class="ImageChangebtn" id="ImageChangebtn">
+                    <span><label for="uploadImageInput">Change</label></span>
+                </div>
+            </div>
+<form id="AddEmployeeform" enctype="multipart/form-data">
+<div class="row py-2 l-first-row">
+    <div class="col-md-3 salutationInputSection">
+        <label for="disabledSelect" class="form-label heading">Salutation</label>
+                        <select id="salutation" class="form-select p-input" required>
+                            <option>select</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                        </select>
+                        <span  class="formValidationWing" id="salutationExclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="formValidationWing" id="salutationInputWarning">* please enter an Input</span>
+                    </div>
+                    <div class="col-md-4 firstNameInputSection">
+                        <label for="disabledTextInput" class="form-label heading">First Name</label>
+                        <input type="text" id="firstName" class="form-control p-input" placeholder="john" required>
+                        <span class="formValidationWing" id="firstNameexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                        
+                        <span class="formValidationWing" id="firstNameInputWarning">* please enter an Input</span>
+                        
+                    </div>
+                    <div class="col-md-5 lastNameInputSection">
+                        <label for="disabledTextInput" class="form-label heading">Last Name</label>
+                        <input type="text" id="lastName" class="form-control p-input" placeholder="doe" required>
+                        <span class="formValidationWing" id="lastNameexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+
+                        <span class="formValidationWing" id="lastNameInputWarning">* please enter an Input</span>
+
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-sm-6 emailInputSection">
+                        <label for="exampleFormControlInput1" class="form-label heading">Email
+                            address</label>
+                            <input type="email" class="form-control p-input" id="email" placeholder="mail@simmmple.com"
+                            required>
+                            <span class="formValidationWing" id="emailexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+
+                        <span class="formValidationWing" id="emailInputWarning">* please enter an Input</span>
+
+                    </div>
+                    <div class="col-sm-6 phoneInputSection">
+                        <label for="exampleFormControlInput1" class="form-label heading">Mobile
+                            Number</label>
+                            <input type="text" class="form-control p-input" id="phone" placeholder="enter mobile number"
+                            required>
+                            <span class="formValidationWing" id="phoneexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                            
+                            <span class="formValidationWing" id="phoneInputWarning">* please enter an Input</span>
+                            
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-sm-6 dobInputSection">
+                            <label for="exampleFormControlInput1" class="form-label heading">Date of
+                                Birth</label>
+                                <input type="date" class="form-control p-input" id="dob" placeholder="select date of birth"
+                                required>
+                                <span class="formValidationWing" id="dobexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                                
+                                <span class="formValidationWing" id="dobInputWarning">* please enter an Input</span>
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="exampleFormControlInput1" class="form-label heading">Gender</label>
+                                <div class="gender-radio">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                                    <span> <label class="form-check-label" for="inlineRadio1">Male</label></span>
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                                    <span> <label class="form-check-label" for="inlineRadio1">Female</label></span>
+                                </div>
+                                <span class="formValidationWing" id="genderInputWarning">* please enter an Input</span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-12 qualificationsInputSection">
+                                <label for="exampleFormControlInput1" class="form-label heading">Qualifications</label>
+                                <input type="text" id="qualifications" class="form-control p-input"
+                                placeholder="enter qualifications" required>
+                                <span class="formValidationWing" id="qualificationsexclamationIcon"><i
+                                    class="fa-solid fa-circle-exclamation"></i></span>
+                                    
+                                    <span class="formValidationWing" id="qualificationsInputWarning">* please enter an Input</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-12 addressInputSection">
+                                    <label for="exampleFormControlInput1" class="form-label heading">Address</label>
+                                    <input type="text" id="address" class="form-control p-input" placeholder="enter address"
+                                    required>
+                                    <span class="formValidationWing" id="addressexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                                    
+                                    <span class="formValidationWing" id="addressInputWarning">* please enter an Input</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-sm-6 op-select countryInputSection">
+                                    <label for="disabledSelect" class="form-label heading">Country</label>
+                                    <select id="country" class="form-select p-input" required>
+                                        <option>select country</option>
+                                        <option value="USA">USA</option>
+                                        <option value="India">India</option>
+                                        <option value="UK">UK</option>
+                                    </select>
+                                    <span class="formValidationWing" id="countryexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                                    
+                                    <span class="formValidationWing" id="countryInputWarning">* please enter an Input</span>
+                                    
+                                </div>
+                                <div class="col-sm-6 stateInputSection">
+                                    <label for="disabledSelect" class="form-label heading">State</label>
+                                    <select id="state" class="form-select p-input" required>
+                                        <option>select state</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                    </select>
+                                    <span class="formValidationWing" id="stateexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                                    
+                                    <span class="formValidationWing" id="stateInputWarning">* please enter an Input</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="row py-2 mb-3">
+                                <div class="col-sm-6 cityInputSection">
+                                    <label for="exampleFormControlInput1" class="form-label heading">City</label>
+                                    <input type="text" id="city" class="form-control p-input" placeholder="enter city" required>
+                                    <span class="formValidationWing" id="cityexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                                    
+                                    <span class="formValidationWing" id="cityInputWarning">* please enter an Input</span>
+
+                    </div>
+                    <div class="col-sm-6 pinInputSection">
+                        <label for="exampleFormControlInput1" class="form-label heading">Pin/Zip</label>
+                        <input type="number" id="pin" class="form-control p-input" placeholder="enter zip/pin"
+                            required>
+                        <span class="formValidationWing" id="pinexclamationIcon"><i class="fa-solid fa-circle-exclamation"></i></span>
+
+                        <span class="formValidationWing" id="pinInputWarning">* please enter an Input</span>
+                        
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer p-2">
+                            <button type="button" class="btn btn-light py-4"
+                            onclick="CloseAddEmployee()">Cancel</button>
+                            
+                            <button type="button" class="btn filled py-4" id="AddEmployeeSubmitBtn"
+                                onclick="validation()">Add Employee</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>
+<!-- End ----Add Employee Form -->
