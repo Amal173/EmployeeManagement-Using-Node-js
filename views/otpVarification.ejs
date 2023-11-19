@@ -1,53 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OTP Verification</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            margin: 50px;
-        }
-        #otpInput {
-            padding: 10px;
-            font-size: 16px;
-        }
-        #verifyButton {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 50px;
+      }
+      #otpInput {
+        padding: 10px;
+        font-size: 16px;
+      }
+      #verifyButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h2>OTP Verification</h2>
     <p>Enter the OTP sent to your mail:</p>
+    <p><%= Email %></p>
+    <form action="/register/varifyUserEmail" method="post">
+      <input
+        type="text"
+        name="otpInput"
+        id="otpInput"
+        placeholder="Enter OTP"
+        maxlength="6"
+      />
+      <p style="color: red"><%= err %></p>
+      <button type="submit" name="otpInput" id="verifyButton">
+        Verify OTP
+      </button>
+
+      <p id="timer" style="color: red">
+        Your OTP Expires In: <span id="minutes">5</span> minutes
+        <span id="seconds">00</span> seconds
+      </p>
+    </form>
     
-<form action="/register/varifyUserEmail" method="post">
-    <input type="text" name="otpInput" id="otpInput" placeholder="Enter OTP" maxlength="6">
-    <br><br>
-    <button  type="submit" name="otpInput" id="verifyButton">Verify OTP</button>
-</form>
-    <!-- <script>
-        function verifyOTP() {
-            var enteredOTP = document.getElementById("otpInput").value;
+    <script>
+      // Countdown timer logic
+      var expirationTime = "<%- JSON.stringify(ExpirationTime) %>";
+      const timerElementMinutes = document.getElementById("minutes");
+      const timerElementSeconds = document.getElementById("seconds");
+      const timer = document.getElementById("timer");
 
-            // In a real-world scenario, you would send the enteredOTP to the server for verification.
-            // The server would generate the OTP and compare it with the enteredOTP.
+      function updateTimer() {
+        const currentTime = new Date().getTime();
+        const remainingTime = Math.max(0, expirationTime - currentTime);
 
-            // For the sake of this example, let's assume the correct OTP is "123456".
-            var correctOTP = "123456";
+        const minutes = Math.floor(remainingTime / (60 * 1000));
+        const seconds = Math.floor((remainingTime % (60 * 1000)) / 1000);
 
-            if (enteredOTP === correctOTP) {
-                alert("OTP verification successful!");
-                // You can redirect the user to another page or perform further actions here.
-            } else {
-                alert("Incorrect OTP. Please try again.");
-            }
+        timerElementMinutes.textContent =
+          minutes < 10 ? `0${minutes}` : minutes;
+        timerElementSeconds.textContent =
+          seconds < 10 ? `0${seconds}` : seconds;
+
+        if (remainingTime === 0) {
+          // Handle expiration, e.g., display a message or redirect to a new page
+          timer.innerHTML = "your OTP is expired";
+        } else {
+          setTimeout(updateTimer, 1000);
         }
-    </script> -->
-</body>
+      }
+
+      updateTimer();
+    </script>
+  </body>
 </html>

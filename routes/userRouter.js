@@ -8,7 +8,8 @@ const {
   logout,
   forgotPassword,
   resetPassword,
-  confirmPassword,varifyUserEmail
+  confirmPassword,
+  varifyUserEmail,
 } = require("../controllers/userController");
 
 userRouter.route("/current").get(currentUser);
@@ -19,6 +20,4 @@ userRouter.route("/forgotPassword").post(forgotPassword);
 userRouter.route("/resetPassword/:id/:token").get(resetPassword);
 userRouter.route("/resetPassword/:id/:token").post(confirmPassword);
 userRouter.route("/varifyUserEmail").post(varifyUserEmail);
-// userRouter.route("/varifyUserEmail").get(varifyUserEmail);
-
 module.exports = userRouter;

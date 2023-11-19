@@ -273,7 +273,7 @@ function Display(data, maxCountOnPage) {
 // --------------------------------------GET method-------------------------------
 
 getEmployee();
-//let maxCountOnPage=4;
+
 function getEmployee() {
   const datasPerPage = document.getElementById("datasPerPage");
   const maxCountOnPage = datasPerPage.value; //its the number if data to be displayed on the page
@@ -290,7 +290,6 @@ function getEmployee() {
       // const maxCountOnPage = datasPerPage.value;
       const totalPages = Math.ceil(data.Totalemployees.length / maxCountOnPage); //finding the total pages as per the data
       pagination(totalPages); //returning the value to pagination function
-      
 
       Display(data.employees, maxCountOnPage);
     });
@@ -310,7 +309,7 @@ async function PostMethod() {
   const gender = document.querySelector('input[name="gender"]:checked').value;
 
   // Function for converting the format of date from yyyy-mm-dd to dd-mm-yyyy
-  var dateofbirth = changeformatDMY(dob); 
+  var dateofbirth = changeformatDMY(dob);
   function changeformatDMY(val) {
     const Array = val.split("-");
     let year = Array[0];
@@ -445,27 +444,23 @@ async function editEmployeeData(emploID) {
   EmployeesData.append("username", firstName);
   EmployeesData.append("password", phone);
 
-
   await fetch(`http://localhost:5001/employee/api/${emploID}`, {
     method: "PUT",
     body: EmployeesData,
-
-  }).then((response) => {
-    
-    return response.json();
   })
-  .then((data) => {
-    console.log(data);
-    getEmployee();
-    CloseAddEmployee();
-    employyeeEdittedModal();
-  })
-  
-      .catch((error) => {
-        console.log(error - "error");
-      });
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      getEmployee();
+      CloseAddEmployee();
+      employyeeEdittedModal();
+    })
 
- 
+    .catch((error) => {
+      console.log(error - "error");
+    });
 }
 
 // -----------------------------End--------PUT method-------------------------------

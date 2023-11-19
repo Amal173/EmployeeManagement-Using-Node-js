@@ -10,10 +10,11 @@ const currentUser = asyncHandler(async (req, res) => {
   const userModel = await userModels.find();
   res.status(200).json({ userModel });
 });
-// var Email;
-// var HashPassword;
-// var Otp;
-// var token;
+var Email;
+var HashPassword;
+var Otp;
+var token;
+var ExpirationTime;
 //post user
 const createUser = asyncHandler(async (req, res) => {
   console.log("the request body is:", req.body);
@@ -26,23 +27,26 @@ const createUser = asyncHandler(async (req, res) => {
   }
   try {
     Email = email;
-    
+
     const otp = otpGenerator;
-    const secretKey=process.env.JWT_TOKEN+otp;
-const payload={
-  password,
-  Email,
-}
-    token = jwt.sign(payload, secretKey, { expiresIn: '5m' });
+    const expirationTime = new Date().getTime() + 5 * 60 * 1000; // 5 minutes expiration
+    ExpirationTime = expirationTime;
+    console.log("the ex time is", ExpirationTime);
+    const secretKey = process.env.JWT_TOKEN + otp;
+    const payload = {
+      password,
+      Email,
+    };
+    token = jwt.sign(payload, secretKey, { expiresIn: "5m" });
     const html = `please enter the below otp to veryfy your email::${otp}`;
-    const title="for email varification";
-    MailSender(Email, html,title);
+    const title = "for email varification";
+    MailSender(Email, html, title);
     console.log(otp, " is the otp");
     const hashPassword = await bcrypt.hash(password, 10);
     console.log(Email);
     HashPassword = hashPassword;
     Otp = otp;
-    res.redirect("/otpVarification");
+    res.render("otpVarification", { Email, err: "", ExpirationTime });
 
     //  res.status(201).json({ userModels: newUser });
   } catch (error) {
@@ -63,22 +67,26 @@ const varifyUserEmail = asyncHandler(async (req, res) => {
   console.log("otpinput", otpValue);
   // Assuming Otp is the previously generated OTP
   // if (Otp == otpValue) {
-    // console.log("OTP is correct");
-    const secretKey=process.env.JWT_TOKEN+otpValue;
-    try {
-      const varify = jwt.verify(token, secretKey);
+  // console.log("OTP is correct");
+  const secretKey = process.env.JWT_TOKEN + otpValue;
+  try {
+    const varify = jwt.verify(token, secretKey);
 
-      const newUser = await userModels.create({
-        email: Email,
-        password: HashPassword,
-      });
+    const newUser = await userModels.create({
+      email: Email,
+      password: HashPassword,
+    });
 
-      console.log("User created successfully");
-      res.redirect("/");
-    } catch (error) {
-      console.error("Error creating user:", error.message);
-     
-    }
+    console.log("User created successfully");
+    res.redirect("/");
+  } catch (error) {
+    res.render("otpVarification", {
+      Email,
+      err: "the OTP is invalid",
+      ExpirationTime,
+    });
+    console.error("Error creating user:", error.message);
+  }
   // } else {
   //   console.log("Invalid OTP");
   //   res.status(400).json({ error: "Invalid OTP" });
@@ -147,15 +155,15 @@ const forgotPassword = asyncHandler(async (req, res) => {
   console.log(link);
   const html = `please click the below linlk to reset your password::
   ${link}`;
-  const title="for reset your password";
-  MailSender(mailId, html,title);
+  const title = "for reset your password";
+  MailSender(mailId, html, title);
   res.redirect("/");
 });
 
 //reset password
 const resetPassword = asyncHandler(async (req, res, next) => {
   const { id, token } = req.params;
-console.log("the token is",token);
+  console.log("the token is", token);
   const user = await userModels.findOne({ _id: id });
 
   if (!user) {
@@ -175,10 +183,10 @@ console.log("the token is",token);
 //confirm reset Password
 const confirmPassword = asyncHandler(async (req, res) => {
   const { id, token } = req.params;
-  console.log(token,"token");
+  console.log(token, "token");
   const { Password1, Password2 } = req.body;
   console.log(req.body);
-  
+
   if (!(Password1 === Password2)) {
     console.log("the password is not same");
     return;
@@ -191,8 +199,6 @@ const confirmPassword = asyncHandler(async (req, res) => {
   //   console.log("the password is already in use in the same user");
   //   return;
   // }
-  console.log(id);
-  console.log("user id",user);
   if (!user) {
     console.log("invalid user id");
     return;

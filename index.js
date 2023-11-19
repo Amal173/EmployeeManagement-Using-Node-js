@@ -13,6 +13,7 @@ const app = express();
 app.use(sessionMiddleware);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 app.set("view engine", "ejs"); // Set EJS as the view engine
 app.set("views", path.join(__dirname, "views"));
 app.use("/uploads", express.static(path.resolve(__dirname, "uploads")));
@@ -47,7 +48,6 @@ app.get("/", (req, res) => {
 app.get("/viewEmployee", isAuthenticated, (req, res) => {
   res.render("viewEmployee");
 });
-
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
