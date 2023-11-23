@@ -276,7 +276,7 @@ getEmployee();
 
 function getEmployee() {
   const datasPerPage = document.getElementById("datasPerPage");
-  const maxCountOnPage = datasPerPage.value; //its the number if data to be displayed on the page
+  const maxCountOnPage = datasPerPage.value; //its the number of data to be displayed on the page
   fetch(
     `http://localhost:5001/employee/api?page=${CurrentPage}&size=${maxCountOnPage}`
   )

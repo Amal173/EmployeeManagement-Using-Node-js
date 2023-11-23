@@ -25,6 +25,9 @@ const createUser = asyncHandler(async (req, res) => {
 
     return res.redirect("/signup");
   }
+  if(email===""|| password===""){
+    return res.redirect("/signup");
+  }
   try {
     Email = email;
 
@@ -46,6 +49,7 @@ const createUser = asyncHandler(async (req, res) => {
     console.log(Email);
     HashPassword = hashPassword;
     Otp = otp;
+    
     res.render("otpVarification", { Email, err: "", ExpirationTime });
 
     //  res.status(201).json({ userModels: newUser });
@@ -87,10 +91,6 @@ const varifyUserEmail = asyncHandler(async (req, res) => {
     });
     console.error("Error creating user:", error.message);
   }
-  // } else {
-  //   console.log("Invalid OTP");
-  //   res.status(400).json({ error: "Invalid OTP" });
-  // }
 });
 
 //login user
@@ -128,7 +128,7 @@ const logout = asyncHandler(async (req, res) => {
     if (err) {
       throw err;
     } else {
-      res.redirect("/");
+      res.redirect("/"); 
     }
   });
 });
@@ -139,12 +139,14 @@ const forgotPassword = asyncHandler(async (req, res) => {
   const { email } = req.body;
   const user = await userModels.findOne({ email });
   console.log("user:", user);
+  if (!user||user===null) {
+    console.log("the email not found");
+    console.log(email);
+    res.render("forgotPassword",{err:`this email:${email} is not valid`});
+    return
+  }
   const mailId = user.email;
   console.log(mailId);
-  if (!user) {
-    console.log("the email not found");
-    return res.redirect("/");
-  }
   const secret = process.env.JWT_TOKEN_RESETPASSWORD + user.password;
   const payload = {
     email: user.email,
@@ -193,12 +195,7 @@ const confirmPassword = asyncHandler(async (req, res) => {
   }
 
   const user = await userModels.findById({ _id: id });
-  // const comparePassword = await bcrypt.compare(Password1, user.Password);
-  // console.log("password:",user.password);
-  // if (comparePassword) {
-  //   console.log("the password is already in use in the same user");
-  //   return;
-  // }
+
   if (!user) {
     console.log("invalid user id");
     return;

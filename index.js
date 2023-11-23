@@ -8,7 +8,7 @@ const ejs = require("ejs");
 const path = require("path");
 const isAuthenticated = require("./service/auth");
 
-connectDb();
+connectDb(); 
 const app = express();
 app.use(sessionMiddleware);
 app.use(bodyParser.urlencoded({ extended: true }));

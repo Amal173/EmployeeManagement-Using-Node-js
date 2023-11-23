@@ -110,13 +110,15 @@ footer .BrandName h5 {
 .SideBar ul li h4 {
     font-size: 16px;
 }
-.SideBar button{
+
+.SideBar button {
     width: 100%;
-background-color: transparent;
-border: transparent;
-font-size: 16px;
-color: rgba(255, 255, 255, 0.70);
+    background-color: transparent;
+    border: transparent;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.70);
 }
+
 .SideBar ul li {
     list-style: none;
     display: flex;
@@ -172,6 +174,7 @@ color: rgba(255, 255, 255, 0.70);
     background: var(--secondary-grey-300, #F4F7FE);
     width: 85%;
     display: flex;
+    margin: 0 0 0 auto;
     flex-direction: column;
 
 }
@@ -395,6 +398,7 @@ color: rgba(255, 255, 255, 0.70);
     height: 68px;
     letter-spacing: -0.28px;
 }
+
 
 .copyright {
 
@@ -1245,12 +1249,14 @@ input[type=range]::-webkit-slider-thumb {
     font-weight: 500;
     display: none;
 }
+
 #genderInputWarning {
     color: red;
     font-size: 13px;
     font-weight: 500;
     display: none;
 }
+
 #qualificationsInputWarning {
     color: red;
     font-size: 13px;
@@ -1603,24 +1609,25 @@ input[type=range]::-webkit-slider-thumb {
     font-weight: 600;
     padding-top: 30px;
 }
-#employyeHome
-{
+
+#employyeHome {
     text-decoration: none;
-    color:rgba(255, 255, 255, 0.70);
+    color: rgba(255, 255, 255, 0.70);
 }
-#viewEmployeeEditImageInput{
+
+#viewEmployeeEditImageInput {
     display: none;
 }
-.active
-{
-    background-color:#4318FF;
-    color: #FFF!important;
+
+.active {
+    background-color: #4318FF;
+    color: #FFF !important;
 }
-.formValidationWing
-{
+
+.formValidationWing {
     display: none;
 }
-.page-link.hidden
-{
+
+.page-link.hidden {
     display: none;
 }
